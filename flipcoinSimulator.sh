@@ -1,5 +1,5 @@
 ##!/bin/bash -x
-MAXCOUNT=21
+MAXCOUNT=6
 headcount=0
 tailcounter=0
 while [[ $headcount -ne $MAXCOUNT && $tailcounter -ne $MAXCOUNT ]]
@@ -27,7 +27,18 @@ else
         echo "Tail wins by difference: "$diff
 
 fi
+
 if [ $headcount -eq $tailcounter ]
 then
 	echo "Its a tie"
+while [ true ]
+	do
+		difference=$(( $tailcounter - $headcount ))
+		if [ $difference -gt 2 ] || [ $difference -gt -2 ]
+		then
+			break
+		else
+			continue
+		fi
+	done
 fi
